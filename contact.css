@@ -1,0 +1,401 @@
+@font-face {
+  font-family: "Cosi Azure Ultra";
+  src: url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.eot");
+  src: url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.woff") format("woff"), url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.svg#Cosi Azure Ultra") format("svg");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  cursor: none;
+}
+
+a li {
+  color: #ffffff;
+  font-family: 'Cosi Azure Ultra';
+  font-size: 25px;
+  display: inline-block;
+  position: relative;
+  padding: 30px;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+a li::after {
+  content: '';
+  display: block;
+  margin-right: auto;
+  height: 2px;
+  width: 0;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  background: #ffffff;
+}
+
+a li:hover::after {
+  width: 100%;
+}
+
+html {
+  background-color: #000000;
+  color: white;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #000000;
+  color: white;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+body:hover {
+  cursor: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.progressbar {
+  position: fixed;
+  top: 0;
+  left: 85%;
+  background: #ffffff;
+  width: 1px;
+  z-index: 1;
+}
+
+.progressbar_1 {
+  position: fixed;
+  top: 100%;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  left: 5%;
+  background: rgba(255, 255, 255, 0.4);
+  width: 1px;
+  z-index: 1;
+}
+
+.navigation-wrapper ul {
+  margin-top: 240px;
+  margin-left: 100px;
+  margin-bottom: 200px;
+  list-style: none;
+  position: absolute;
+}
+
+.navigation-item {
+  display: block;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 120px 0;
+}
+
+.navigation-item span:before {
+  width: 0;
+  color: #ffffff;
+  overflow: hidden;
+  position: absolute;
+  content: attr(data-text);
+  -webkit-transition: all 1s cubic-bezier(0.84, 0, 0.08, 0.99);
+  transition: all 1s cubic-bezier(0.84, 0, 0.08, 0.99);
+  cursor: none;
+}
+
+.navigation-item span:hover {
+  cursor: none;
+}
+
+.navigation-item span:hover:before {
+  width: 100%;
+  cursor: none;
+}
+
+.navigation-link {
+  font-size: 100px;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Cosi Azure Ultra";
+}
+
+.navigation-link:hover {
+  color: transparent;
+}
+
+span {
+  position: relative;
+  display: block;
+}
+
+.project-preview-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.project-preview {
+  position: fixed;
+  top: 12%;
+  left: 50%;
+  width: 0px;
+  height: 400px;
+  background: url(img-1.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/***********************cursor***************************/
+#cursor {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+#cursor {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor__circle {
+    width: 44px;
+    height: 44px;
+    margin-top: -50%;
+    margin-left: -50%;
+    background-color: transparent;
+    border-radius: 50%;
+    border: solid 1px #fff;
+    -webkit-transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+}
+
+/***********************cursor***************************/
+/************************page animation*******************************/
+.animate-in {
+  -webkit-animation: fadeIn .9s ease-in;
+  animation: fadeIn .9s ease-in;
+}
+
+.animate-out {
+  -webkit-transition: opacity .20s;
+  transition: opacity .20s;
+  opacity: 0;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 500px) {
+  .navigation-wrapper {
+    position: absolute;
+    left: 0;
+    top: -20%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  .progressbar {
+    display: none;
+  }
+  .project-preview {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .project-preview-wrapper {
+    display: none;
+  }
+  .navigation-list {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(50%);
+            transform: translate(50%);
+    text-align: center;
+  }
+  .navigation-list .navigation-link {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 900px) {
+  .navigation-wrapper {
+    position: absolute;
+    left: 0;
+    top: -20%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  .navigation-list {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(50%);
+            transform: translate(50%);
+    text-align: center;
+  }
+  .navigation-list .navigation-link {
+    font-size: 40px;
+  }
+  .progressbar {
+    display: none;
+  }
+  .project-preview {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .project-preview-wrapper {
+    display: none;
+  }
+}
+
+/************************page animation*******************************/
+.all {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: black;
+  z-index: 10000000000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.top {
+  margin-bottom: -53px;
+  margin-left: 23px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  -webkit-transform: rotateY(0deg) rotate(45deg);
+          transform: rotateY(0deg) rotate(45deg);
+}
+
+.inner-oval {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid white;
+  width: 150px;
+  height: 30px;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.circle1 {
+  border: 2px solid white;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  -webkit-animation: zoom 3s linear 0s infinite;
+          animation: zoom 3s linear 0s infinite;
+}
+
+.circle2 {
+  border: 2px solid white;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  -webkit-animation: zoom 3s linear 0s infinite;
+          animation: zoom 3s linear 0s infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.circle3 {
+  border: 2px solid white;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  -webkit-animation: zoom 3s linear 0s infinite;
+          animation: zoom 3s linear 0s infinite;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+@-webkit-keyframes zoom {
+  0% {
+    backround-color: black;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: black;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    backround-color: black;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: black;
+  }
+}
+/*# sourceMappingURL=contact.css.map */

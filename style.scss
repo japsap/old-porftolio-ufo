@@ -1,0 +1,486 @@
+
+
+
+@font-face {font-family: "Cosi Azure Ultra"; src: url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.eot"); src: url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.woff") format("woff"), url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3f81afbe71b67f6fe1bb1186f9320086.svg#Cosi Azure Ultra") format("svg"); }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+$first-color:#fff;
+$second-color:#fff;
+$bg-colour: black;
+$colour-negative: invert($bg-colour, 80%);
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand';
+    cursor:none;
+  
+}
+body{
+  background: $bg-colour;
+  
+}
+/**************loader**************/
+::-webkit-scrollbar{
+  display: none;
+}
+/************loader******************/
+.logo{
+    font-size: 35px;
+    position: absolute;
+    color: #ffffff;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    display: inline-block;
+    font-family: "Cosi Azure Ultra";
+    padding: 25px;
+    float:right;
+    font-weight: 200;
+    display: inline-block;
+}
+
+/*************mobile*************/
+#slidebar{
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  left: -100%;
+  z-index: 111110000;
+  transition: 0.8s;
+  .toggle-btn{
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    left: 101%;
+    padding: 20px;
+    display: inline-block;
+  }
+  .toggle-btn-2{
+    font-size: 30px;
+    padding: 20px;
+  }
+  .mobile-links{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    a li{
+      text-align: center;
+      color: #000; 
+      list-style: none;
+      font-size: 40px;
+      padding: 20px;
+      &::after{
+        content: '';
+        background: #000;
+        height: 2px;
+        width: 0;
+        transition: 0.9s;
+        display: block;
+        margin: auto;
+      }
+      &:hover::after{
+        width: 100%;
+      }
+    }
+  }
+}
+#slidebar.active{
+  left: 0;
+}
+
+/*************mobile*************/
+
+
+/***************laptop-pc-navbar***************/
+.nav-bar{
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    a li{
+        color:$first-color;
+        display: inline-block;
+        padding: 30px;
+        font-size: 17px;
+        font-weight: 400;
+        z-index: -1;
+        &::after{
+            content: '';
+            background: $second-color;
+            height: 2px;
+            width: 0;
+            z-index: 1;
+            margin-top:-11px;
+            display: block;
+            transition: 0.8s;
+        }
+        &:hover::after{
+            width: 100%;
+        }
+    }
+}
+/***************laptop-pc-navbar***************/
+
+
+#cursor {
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    will-change: transform;
+    mix-blend-mode: difference;
+  }
+  
+  #cursor {
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    will-change: transform;
+    mix-blend-mode: difference;
+  }
+  
+@media (hover: hover) and (pointer: fine) {
+    .cursor__circle {
+      width: 44px;
+      height: 44px;
+      margin-top: -50%;
+      margin-left: -50%;
+      background-color: transparent;
+      border-radius: 50%;
+      border: solid 1px $first-color;
+      transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+}
+/******************container-text******************/
+.container1{
+  height: 100vh;
+  overflow: hidden;
+  
+  &__frame{
+    /* center */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75vh;
+    height: 75vh;
+    max-width: 400px;
+    max-height: 400px;
+    background: $bg-colour;
+    border: 1px solid $colour-negative;
+    font-family: "Cosi Azure Ultra";
+  }
+  &__text{
+    position: absolute;
+    font-family: "Cosi Azure Ultra";
+    top: 40%;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+.text{
+  font-family: "Cosi Azure Ultra";
+  font-size: 5vw;
+  text-transform: uppercase;
+  width: 100%;
+  color: $colour-negative;
+
+  &::before{
+    content: attr(data-content);
+    position: absolute;
+    z-index: 1;
+    background-clip: text;
+    -webkit-text-stroke: 1px $colour-negative;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.hscroll{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  transition: all 1000ms ease-in-out;
+}
+/******************container-text******************/
+
+
+/*******************mobile-txt***********************/
+.mobile-text{
+  font-size: 40px;
+  font-family: "Cosi Azure Ultra";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  font-weight: 900;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+.bounce-1 {
+  animation-name: bounce-1;
+  animation-timing-function: linear;
+}
+@keyframes bounce-1 {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-100px); }
+  100% { transform: translateY(0); }
+}
+/*******************mobile-txt***********************/
+
+.btn-index{
+  position: absolute;
+  color: white;
+  top:80%;
+  left:50%;
+  background-color: transparent;
+  transform: translate(-50%,-50%);
+  font-size: 20px;
+  
+  border-left: none;
+  text-decoration: none;
+  margin-top: 7px;
+  padding: 20px;
+  background: linear-gradient(to right, #fff 50%, #000000 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .5s ease-out;
+  &:hover{
+    background-position: left bottom;
+    color: #000;
+  }
+}
+/***************************************************************/
+
+
+
+
+/*****************************animations**********************************/
+.transition-fade{
+  transition: .4s;
+  opacity: 1;
+}
+html.is-animating .transition-fade{
+  opacity: 0;
+  transform: translateY(-100px);
+}
+
+/*****************************animation bweteen pages**********************************/
+
+
+
+/************************loading screens***************************/
+.animate-in {
+	-webkit-animation: fadeIn .9s ease-in;
+  animation: fadeIn .9s ease-in;
+
+}
+.animate-out {
+	-webkit-transition: opacity .20s;
+	transition: opacity .20s;
+  opacity: 0;
+}
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+
+/****************************PORTFOLIO PAGE***********************************/
+
+
+
+
+
+
+
+
+
+
+/***************************************************************/
+
+
+
+
+
+/**********************responsve-design*************************/
+@media only screen and (min-width:320px) and (max-width:519px){
+  .container1{
+    display: none;
+  }
+  .logo{
+    display: none;
+  }
+  .nav-bar{
+    a li{
+      display: none;
+    }
+  }
+  .button-index{
+    padding:20px;
+    .btn-index{
+      width: 70%;
+      border-radius: 5em;
+      border-left: 1px #ffffff;
+      text-align: center;
+    }
+  }
+}
+@media only screen and (min-width:520px) and (max-width:720px){
+  .container1{
+    display: none;
+  }
+  .logo{
+    display: none;
+  }
+  .nav-bar{
+    a li{
+      display: none;
+    }
+  }
+  .mobile-text{
+    font-size: 70px;
+  }
+}
+@media only screen and (min-width:721px) and (max-width:1500px){
+  .container1{
+    margin-bottom: 50px;
+    .text{
+      font-size: 7vw;
+    }
+  }
+  .btn-index{
+    margin-top: 50px;
+  }
+  #slidebar{
+    display: none;
+  }
+  .logo{
+    float: left;
+  }
+  .container1{
+    display: none;
+  }
+  .mobile-text{
+    font-size: 80px;
+  }
+}
+@media only screen and (min-width:1501px) and (max-width:32020px){
+  #slidebar{
+    display: none;
+    .toggle-btn{
+      display: none;
+    }
+  }
+  .mobile-text{
+    display: none;
+  }
+  .logo{
+    float: left;
+  }
+}
+  
+  .all {
+    display: flex;  
+    background-color: black;
+    z-index: 100;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    width:100%;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .top {
+    margin-bottom: -53px;
+    margin-left: 23px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+    transform: rotateY(0deg) rotate(45deg);
+  }
+  
+  .inner-oval {
+    align-items: center;
+    border: 2px solid white;
+    width: 150px;
+    height: 30px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .circle1 {
+    border: 2px solid white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    animation: zoom 3s linear 0s infinite;
+  }
+  
+  .circle2 {
+    border: 2px solid white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    animation: zoom 3s linear 0s infinite;
+    animation-delay: 1s;
+    
+  }
+  
+  .circle3 {
+    border: 2px solid white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    animation: zoom 3s linear 0s infinite;
+    animation-delay: 2s;
+    
+  }
+  
+  @keyframes zoom {
+    0% {
+      backround-color: black;
+    }
+    50% {
+      background-color: white;
+    }
+    100% {
+      background-color: black;
+    }
+  }

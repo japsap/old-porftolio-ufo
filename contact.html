@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cant open</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="//db.onlinewebfonts.com/c/067cc4a05526cc8001ffbe6a576eace4?family=Cosi+Azure+Black+Stencil" rel="stylesheet" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+</head>
+<style>
+  .container{
+    left: 58%;
+  }
+    h1{
+        color: white;
+        top:60%;
+        position: absolute;
+        text-align: center;
+    }
+    a{
+        position: absolute;
+        top: 65%;
+        color: white;
+    }
+    @media screen and (max-width:500px){
+      h1{
+        font-size: 25px;
+        text-align: center;
+      }
+      .button-index{
+        display: none;
+      }
+    }
+</style>
+<body class="animate-in">
+    <div class="all">
+      <h1>Under construction</h1>
+        <div class="container">
+          <div class="top"></div>
+          <div class="inner-oval">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+          </div>
+          <div id="cursor">
+            <div class="cursor__circle"></div>
+        </div>
+      </div>
+      </div>
+      <script>
+          //mouse cursor
+
+const cursor = document.querySelector('#cursor');
+const cursorCircle = cursor.querySelector('.cursor__circle');
+
+const mouse = { x: -100, y: -100 }; // mouse pointer's coordinates
+const pos = { x: 0, y: 0 }; // cursor's coordinates
+const speed = 0.1; // between 0 and 1
+
+const updateCoordinates = e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+}
+
+window.addEventListener('mousemove', updateCoordinates);
+
+
+function getAngle(diffX, diffY) {
+  return Math.atan2(diffY, diffX) * 180 / Math.PI;
+}
+
+function getSqueeze(diffX, diffY) {
+  const distance = Math.sqrt(
+    Math.pow(diffX, 2) + Math.pow(diffY, 2)
+  );
+  const maxSqueeze = 0.15;
+  const accelerator = 1500;
+  return Math.min(distance / accelerator, maxSqueeze);
+}
+
+
+const updateCursor = () => {
+  const diffX = Math.round(mouse.x - pos.x);
+  const diffY = Math.round(mouse.y - pos.y);
+  
+  pos.x += diffX * speed;
+  pos.y += diffY * speed;
+  
+  const angle = getAngle(diffX, diffY);
+  const squeeze = getSqueeze(diffX, diffY);
+  
+  const scale = 'scale(' + (1 + squeeze) + ', ' + (1 - squeeze) +')';
+  const rotate = 'rotate(' + angle +'deg)';
+  const translate = 'translate3d(' + pos.x + 'px ,' + pos.y + 'px, 0)';
+
+  cursor.style.transform = translate;
+  cursorCircle.style.transform = rotate + scale;
+};
+
+function loop() {
+  updateCursor();
+  requestAnimationFrame(loop);
+}
+
+requestAnimationFrame(loop);
+
+
+
+const cursorModifiers = document.querySelectorAll('[cursor-class]');
+
+cursorModifiers.forEach(curosrModifier => {
+  curosrModifier.addEventListener('mouseenter', function() {
+    const className = this.getAttribute('cursor-class');
+    cursor.classList.add(className);
+  });
+  
+  curosrModifier.addEventListener('mouseleave', function() {
+    const className = this.getAttribute('cursor-class');
+    cursor.classList.remove(className);
+  });
+});
+
+
+window.addEventListener("beforeunload", function () {
+  document.body.classList.add("animate-out");
+});
+
+      </script>
+</body>
+</html>
